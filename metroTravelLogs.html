@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Travel Logs" icon-name="standard:log_a_call">
+        <template if:true={data}>
+            <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                onrowselection={handleRowSelection}
+                max-row-selection="10">
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+
+        <br/>
+        <lightning-button
+            label="Delete Selected"
+            variant="destructive"
+            onclick={handleDelete}
+            class="slds-m-top_medium">
+        </lightning-button>
+    </lightning-card>
+</template>
